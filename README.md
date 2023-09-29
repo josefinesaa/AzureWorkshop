@@ -2,7 +2,7 @@
 
 I denne workshoppen skal du lære hvordan man bruker Azure Blob Storage og Azure Functions. Les mer her ....
 
-Du skal lage en applikasjon hvor du kan laste opp bilder til en Azure Blob Storage og bruke en Blob Trigger til å få varsel på når nye bilder er lastet opp. 
+Du skal lage en applikasjon hvor du kan laste opp bilder til en Azure Blob Storage og bruke en Blob Trigger til å få varsel når nye bilder lastes opp. 
 
 # Før du begynner
 
@@ -24,7 +24,7 @@ Etter å ha fulgt denne guiden kan du åpne en ny fane med Azure portalen og gå
 
 # Installering og oppsett av Python kode for opplasting av bilder
 
-Det første du starter med å gjøre er å opprette et prosjekt i VS Code. 
+Det første du starter med å gjøre er å opprette et prosjekt i Visual Studio Code. 
 Deretter kjører du følgende kommando i terminalen for å installere Flask og Azure Storage Blob SDK.
 
 ```
@@ -33,7 +33,7 @@ pip install Flask azure-storage-blob
 
 ## HTML-fil
 
-I VS Code prosjektet lager du en mappe kalt "templates" og i denne mappen oppretter du en html fil kalt 'index.html', som inneholder følgende kode:
+I VS Code-prosjektet lager du en mappe kalt `templates` og i denne mappen oppretter du en html-fil kalt `index.html`, som inneholder følgende kode:
 ```
 <!DOCTYPE html>
 <html>
@@ -49,9 +49,9 @@ I VS Code prosjektet lager du en mappe kalt "templates" og i denne mappen oppret
 </body>
 </html>
 ```
-## Yaml-fil
+## YAML-fil
 
-Du må også opprette en yaml-fil i prosjektet, kalt 'config.yaml'. Legg til følgende kode i  konfigurasjonsfilen:
+Du må også opprette en yaml-fil i prosjektet, kalt `config.yaml`. Legg til følgende kode i konfigurasjonsfilen:
 
 ```yaml
 {
@@ -60,13 +60,13 @@ Du må også opprette en yaml-fil i prosjektet, kalt 'config.yaml'. Legg til fø
 }
 ```
 
-Du må endre `"din_azure_connection_string"`, `"din_container_navn"` og `"din_kilde_mappe"` til de faktiske verdiene som passer for ditt prosjekt. `"din_azure_connection_string"` er verdien du tidligere lagret fra Access Key, og `"din_container_navn"` er navnet på containeren som du opprettet i første steg (samples-workitems).
+Her må du endre `"din_azure_connection_string"` og `"din_container_navn"` til de faktiske verdiene som passer for ditt prosjekt. `"din_azure_connection_string"` er verdien du tidligere lagret fra Access Key, og `"din_container_navn"` er navnet på containeren som du opprettet i første steg (samples-workitems).
 
 Sørg også for at du har riktig mappestruktur og filnavn for moduler og konfigurasjonsfiler.
 
 ## Python-fil
 
-Deretter oppretter du en python fil i prosjektet kalt 'app.py'. 
+Deretter oppretter du en python fil i prosjektet kalt `app.py`. 
 
 Her importerer du først de nødvendige biblotekene og modulene:
 
@@ -92,7 +92,7 @@ def load_config():
         return yaml.load(yamlfile, Loader=yaml.FullLoader)
 ```
 
-Definerer en rute som viser opplastingsgrensesnittet (index.html)
+Definerer en rute som viser opplastingsgrensesnittet (index.html).
 ```
 @app.route('/')
 def index():
@@ -111,7 +111,7 @@ def upload():
     container_client =   ContainerClient.from_connection_string(config["azure_storage_connectionstring"], config["images_container_name"])
 ```
 
-I upload-funksjonen legger du til et sjekk om en fil med navn 'image' er inkludert i forespørselenm eller om filnavnet er tomt (ingen fil valgt). 
+I upload-funksjonen legger du til et sjekk om en fil med navn 'image' er inkludert i forespørselen eller om filnavnet er tomt (ingen fil valgt). 
 
 ```
     if 'image' not in request.files:
@@ -126,17 +126,14 @@ I upload-funksjonen legger du til et sjekk om en fil med navn 'image' er inklude
 
 Bruker det opprinnelige filnavnet eller genererer et unikt navn for bloben
    
-
 ```
     blob_name = image.filename
     blob_client = container_client.get_blob_client(blob_name)
 ```
-Sjekker om bloben allerede eksisterer i beholderen
-    
+Sjekker om bloben allerede eksisterer i containeren.
 
 ```
 if not blob_client.exists():
-        # Lagrer den opplastede filen i Azure Blob Storage
         blob_client.upload_blob(image)
         return "Image uploaded successfully."
     else:
@@ -203,7 +200,7 @@ if __name__ == '__main__':
 
 ## Kjøre kode
 
-For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i samme mappe som app.py-filen. Her vil du få opp en url i terminalen med Flask-applikasjonen. 
+For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i samme mappe som app.py-filen. Som ouput vil du få opp en url i terminalen med Flask-applikasjonen. 
 
 ```
  python -m flask run --no-debug
@@ -215,10 +212,10 @@ For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i
 Kontroller at du har aktivert blobtrigger-funksjonen i Azure portalen. Dette gjør du ved å følge steget "Turn on your blob trigger" i guiden gitt tidligere (https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/8-create-blob-trigger).
 
 Nå er du klar for å teste at funksjonen fungerer som den skal.
-Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), og last opp et bilde her. Når du får melding om at bildet er lastet opp, går du tilbake Deretter til blob funksjonen i Azure portalen og nå vil du se at en blob trigger er utført. 
+Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), og last opp et bilde her. Når du får melding om at bildet er lastet opp, går du tilbake til blob funksjonen i Azure-portalen og nå vil du se at en blob trigger er utført. 
 
 Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
-
+SE PÅ DISSE FORSLAGENE!!
 - Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
 - Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du filtrere ut bestemte filtyper som .jpg, .png eller .pdf.
 - Legg til ekstra behandling: Etter at Blob Trigger-funksjonen har blitt utløst, kan deltakerne legge til mer logikk for å behandle filene. Dette kan inkludere omforming, overføring av filer til en annen beholder eller utføre spesifikke operasjoner basert på filens innhold.
