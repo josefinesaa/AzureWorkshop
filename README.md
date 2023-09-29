@@ -155,7 +155,7 @@ Til slutt vil python koden se slik ut:
 
 ```python
 {
-  from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for
 import os
 import yaml
 from azure.storage.blob import ContainerClient
@@ -220,11 +220,10 @@ Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), 
 Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
 
 - Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
-- Legg til logger: Legg til logger eller Console.WriteLine-setninger for å logge hendelser og meldinger i funksjonen. Dette hjelper med feilsøking og gir en bedre forståelse av hvordan funksjonen blir utløst og kjører.
 - Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du filtrere ut bestemte filtyper som .jpg, .png eller .pdf.
 - Legg til ekstra behandling: Etter at Blob Trigger-funksjonen har blitt utløst, kan deltakerne legge til mer logikk for å behandle filene. Dette kan inkludere omforming, overføring av filer til en annen beholder eller utføre spesifikke operasjoner basert på filens innhold.
 - Behandle flere beholdere: Deltakerne kan tilpasse Blob Trigger-funksjonen til å reagere på flere beholdere i stedet for bare én. Dette gjøres ved å definere flere Blob Triggers med ulike bindings.
-- Endre triggere: Azure Functions støtter ulike typer triggere, ikke bare Blob Trigger. Deltakerne kan eksperimentere med andre triggere, som Timer Trigger eller Queue Trigger, og kombinere dem med Blob Trigger for å oppnå mer kompleks oppførsel.
+- Endre triggere: Azure Functions støtter ulike typer triggere, ikke bare Blob Trigger. Du kan eksperimentere med andre triggere, som Timer Trigger eller Queue Trigger, og kombinere dem med Blob Trigger for å oppnå mer kompleks oppførsel.
 - Tidsplanlegging: Utforsk muligheten til å planlegge når Blob Trigger-funksjonen skal kjøre ved å bruke Time Trigger. Dette lar deg kontrollere når funksjonen skal overvåke beholdere for nye filer.
 
 
