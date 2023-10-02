@@ -212,20 +212,14 @@ For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i
 Kontroller at du har aktivert blobtrigger-funksjonen i Azure portalen. Dette gjør du ved å følge steget "Turn on your blob trigger" i guiden gitt tidligere (https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/8-create-blob-trigger).
 
 Nå er du klar for å teste at funksjonen fungerer som den skal.
-Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), og last opp et bilde her. Når du får melding om at bildet er lastet opp, går du tilbake til blob funksjonen i Azure-portalen og nå vil du se at en blob trigger er utført. 
+Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), og last opp et bilde her. Når du får beskjed om at bildet er lastet opp, går du tilbake til blob funksjonen i Azure-portalen og nå vil du se at en blob trigger er utført. 
 
 Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
-SE PÅ DISSE FORSLAGENE!!
 - Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
 - Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du filtrere ut bestemte filtyper som .jpg, .png eller .pdf.
-- Legg til ekstra behandling: Etter at Blob Trigger-funksjonen har blitt utløst, kan deltakerne legge til mer logikk for å behandle filene. Dette kan inkludere omforming, overføring av filer til en annen beholder eller utføre spesifikke operasjoner basert på filens innhold.
-- Behandle flere beholdere: Deltakerne kan tilpasse Blob Trigger-funksjonen til å reagere på flere beholdere i stedet for bare én. Dette gjøres ved å definere flere Blob Triggers med ulike bindings.
-- Endre triggere: Azure Functions støtter ulike typer triggere, ikke bare Blob Trigger. Du kan eksperimentere med andre triggere, som Timer Trigger eller Queue Trigger, og kombinere dem med Blob Trigger for å oppnå mer kompleks oppførsel.
-- Tidsplanlegging: Utforsk muligheten til å planlegge når Blob Trigger-funksjonen skal kjøre ved å bruke Time Trigger. Dette lar deg kontrollere når funksjonen skal overvåke beholdere for nye filer.
+  
 
 
-
-(Dette gjør du ved å gå inn i Function App-en du opprettet tidligere, og under funksjoner finnner du funksjonen du opprettet tidligere, antagelivis kalt 'BlobTrigger1'. Trykk på denne funsjonen og deretter trykker du på "Code + Test" fra menyen i venstre under "Developer". Så trykker du på pilen ned ved siden av "App Insights Logs" og bytter til "Filesystem Logs". Trykk OK på pop opp vinduet. Hvis alt er som det skal vil du se "Connected!" på skjermen. )
 
 
 
