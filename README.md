@@ -25,10 +25,13 @@ Etter å ha fulgt denne guiden kan du åpne en ny fane med Azure portalen og gå
 # Oppsett av kode for opplasting av bilder til Azure Blob Storage
 
 Det første du starter med å gjøre er å opprette et prosjekt i Visual Studio Code. 
-Deretter kjører du følgende kommando i terminalen for å installere Flask og Azure Storage Blob SDK.
+Deretter kjører du følgende kommandoer i terminalen for å installere Flask og Azure Storage Blob SDK, og YAML.
 
 ```
 pip install Flask azure-storage-blob
+```
+```
+pip install PyYAML
 ```
 
 ## HTML-fil
@@ -53,7 +56,7 @@ Denne koden oppretter en enkel HTML-side som lar brukere laste opp bildefiler ve
 
 ## YAML-fil
 
-Du må også opprette en yaml-fil i prosjektet, kalt `config.yaml`. Legg til følgende kode i konfigurasjonsfilen:
+Du må også opprette en yaml-fil i prosjekt-mappen (ikke templates), kalt `config.yaml`. Legg til følgende kode i konfigurasjonsfilen:
 
 ```yaml
 {
@@ -68,7 +71,7 @@ Sørg også for at du har riktig mappestruktur og filnavn for moduler og konfigu
 
 ## Python-fil
 
-Deretter oppretter du en python fil i prosjektet kalt `app.py`. 
+Deretter oppretter du en python fil i prosjekt-mappen kalt `app.py`. 
 
 Her importerer du først de nødvendige biblotekene og modulene:
 
@@ -217,6 +220,9 @@ Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), 
 Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
 - Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
 - Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du legge til en feilmelding på bestemte filtyper som .jpg, .png eller .pdf.
+
+
+(- Lage en Azure funksjon fra Visual Studio Code prosjektet. (https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/5-create-function-visual-studio-code) )
   
 
 
