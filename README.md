@@ -22,7 +22,7 @@ Deretter følger du denne guiden for å opprette en blob trigger i Azure Portal 
 
 Etter å ha fulgt denne guiden kan du åpne en ny fane med Azure portalen og gå inn i Storage-Accounten som du koblet blob-funksjonen til. Deretter i venstre meny går du inn i "Access Key" og under "Connection String" så kopierer du verdien og lagrer denne til senere.
 
-# Installering og oppsett av Python kode for opplasting av bilder
+# Oppsett av Python kode for opplasting av bilder til Azure Blob Storage
 
 Det første du starter med å gjøre er å opprette et prosjekt i Visual Studio Code. 
 Deretter kjører du følgende kommando i terminalen for å installere Flask og Azure Storage Blob SDK.
@@ -49,6 +49,8 @@ I VS Code-prosjektet lager du en mappe kalt `templates` og i denne mappen oppret
 </body>
 </html>
 ```
+Denne koden oppretter en enkel HTML-side som lar brukere laste opp bildefiler ved å velge en fil fra sin enhet og deretter sende filen til en server ved å trykke på "Upload"-knappen.
+
 ## YAML-fil
 
 Du må også opprette en yaml-fil i prosjektet, kalt `config.yaml`. Legg til følgende kode i konfigurasjonsfilen:
@@ -124,13 +126,13 @@ I upload-funksjonen legger du til et sjekk om en fil med navn 'image' er inklude
 
 ```
 
-Bruker det opprinnelige filnavnet eller genererer et unikt navn for bloben
+Så setter du navnet på filen som lagres i Azure Blob Storage. 
    
 ```
     blob_name = image.filename
     blob_client = container_client.get_blob_client(blob_name)
 ```
-Sjekker om bloben allerede eksisterer i containeren.
+Deretter sjekker du om bloben allerede eksisterer i containeren.
 
 ```
 if not blob_client.exists():
@@ -140,18 +142,17 @@ if not blob_client.exists():
         return "Image already exists in the container. Skipping upload."
 ```
 
-Starter Flask-applikasjonen hvis dette er hovedprogrammet.
+Til slutt må du starte Flask-applikasjonen.
 
 ```
 if __name__ == '__main__':
     app.run(debug=True)
 ```
 
-
-Til slutt vil python koden se slik ut:
+### Full kode
+Den endelige python koden i `app.py` vil se slik ut:
 
 ```python
-{
 from flask import Flask, request, render_template, redirect, url_for
 import os
 import yaml
@@ -194,13 +195,12 @@ def upload():
 if __name__ == '__main__':
     app.run(debug=True)
 
-}
 
 ```
 
 ## Kjøre kode
 
-For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i samme mappe som app.py-filen. Som ouput vil du få opp en url i terminalen med Flask-applikasjonen. 
+For å kjøre python-koden må du kjøre denne kommandoen. Kontroller at du er i samme mappe som app.py-filen. Som ouput vil du få opp en url i terminalen som vil vise Flask-applikasjonen der du kan laste opp bilder.
 
 ```
  python -m flask run --no-debug
@@ -216,7 +216,7 @@ Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), 
 
 Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
 - Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
-- Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du filtrere ut bestemte filtyper som .jpg, .png eller .pdf.
+- Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du legge til en feilmelding på bestemte filtyper som .jpg, .png eller .pdf.
   
 
 
