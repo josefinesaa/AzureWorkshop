@@ -8,10 +8,10 @@ Du skal lage en applikasjon hvor du kan laste opp bilder til en Azure Blob Stora
 
 Før du starter, må du sørge for at du har følgende krav oppfylt:
 
-- Python 3.x installert på datamaskinen din.
+- Python 3.x installert.
 - Pip installert for å administrere Python-pakker.
 - En Azure-konto.
-- Visual Studio Code installert på datamaskinen din.
+- Visual Studio Code installert.
 
 
 # Azure Funtion - Blob Trigger
