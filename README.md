@@ -1,6 +1,6 @@
 # AzureWorkshop
 
-I denne workshoppen skal du lære hvordan man bruker Azure Blob Storage og Azure Functions. 
+I denne guiden skal du lære hvordan man bruker Azure Blob Storage og Azure Functions. 
 
 Du skal lage en applikasjon hvor du kan laste opp bilder til en Azure Blob Storage og bruke en Blob Trigger til å få varsel når nye bilder lastes opp. 
 
