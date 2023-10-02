@@ -1,0 +1,5 @@
+azure_storage_connectionstring: "DefaultEndpointsProtocol=https;AccountName=learnf42ecdd8bb064393e4;AccountKey=EzbDly6wZ4s6KZVfK754dcaVZW9DrrF2GholMc3Pbf/Zm5v0ssErppGPkl3sI3EZXPys8ZS4n3ie+AStd8zgEw==;EndpointSuffix=core.windows.net"
+images_container_name: "samples-workitems"
+
+
+
