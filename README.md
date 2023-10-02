@@ -22,7 +22,7 @@ Deretter følger du denne guiden for å opprette en blob trigger i Azure Portal 
 
 Etter å ha fulgt denne guiden kan du åpne en ny fane med Azure portalen og gå inn i Storage-Accounten som du koblet blob-funksjonen til. Deretter i venstre meny går du inn i "Access Key" og under "Connection String" så kopierer du verdien og lagrer denne til senere.
 
-# Oppsett av Python kode for opplasting av bilder til Azure Blob Storage
+# Oppsett av kode for opplasting av bilder til Azure Blob Storage
 
 Det første du starter med å gjøre er å opprette et prosjekt i Visual Studio Code. 
 Deretter kjører du følgende kommando i terminalen for å installere Flask og Azure Storage Blob SDK.
