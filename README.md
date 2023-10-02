@@ -18,7 +18,7 @@ Før du starter, må du sørge for at du har følgende krav oppfylt:
 
 Følg steget 'Create an Azure Function App' fra følgende guide: https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/4-create-timer-trigger
 
-Deretter følger du denne guiden for å opprette en blob trigger i Azure Portal (du trenger ikke fullføre det siste steget "Create a blob", siden vi skal gjøre dette på en annen måte med stegene forklart nedenfor): https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/8-create-blob-trigger
+Deretter følger du denne guiden for å opprette en blob trigger i Azure Portal (du trenger ikke fullføre det siste steget 'Create a blob', siden vi skal gjøre dette på en annen måte med stegene forklart nedenfor): https://learn.microsoft.com/en-us/training/modules/execute-azure-function-with-triggers/8-create-blob-trigger
 
 Etter å ha fulgt denne guiden kan du åpne en ny fane med Azure portalen og gå inn i Storage-Accounten som du koblet blob-funksjonen til. Deretter i venstre meny går du inn i "Access Key" og under "Connection String" så kopierer du verdien og lagrer denne til senere.
 
