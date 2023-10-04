@@ -217,12 +217,12 @@ Kontroller at du har aktivert blobtrigger-funksjonen i Azure portalen. Dette gj�
 Nå er du klar for å teste at funksjonen fungerer som den skal.
 Gå inn i url-en til Flask-applikasjonen (sørg for at den er oppe og kjører), og last opp et bilde her. Når du får beskjed om at bildet er lastet opp, går du tilbake til blob funksjonen i Azure-portalen og nå vil du se at en blob trigger er utført. 
 
-Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. Her er noen forslag til ting du kan prøve:
-- Legg til timestamp: Legg til tidspunkt for når bildene blir lastet opp. 
-- Endre filtype: Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du legge til en feilmelding på bestemte filtyper som .jpg, .png eller .pdf.
-
-
-(- Lage en Azure funksjon fra Visual Studio Code prosjektet. (https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/5-create-function-visual-studio-code) )
+Nå kan du selv utforske litt hvordan dette fungerer ved å endre 'run.csx' filen som du ønsker. 
+Her er noen forslag til ting du kan prøve:
+- Legg til tidspunkt for når bildene blir lastet opp. 
+- Endre Blob Trigger-funksjonen for å reagere på en bestemt type filer. For eksempel kan du legge til en feilmelding på bestemte filtyper som .jpg, .png eller .pdf.
+- Endre Blob Trigger-funksjonen for å reagere på en bestemt størrelse på fil. For eksempel legge til en feilmelding når filer over en viss størrelse blir langt inn. 
+- Lage en Azure funksjon fra Visual Studio Code prosjektet (https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/5-create-function-visual-studio-code).
   
 
 
